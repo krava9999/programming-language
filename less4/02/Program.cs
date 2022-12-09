@@ -2,7 +2,6 @@
 Console.WriteLine("Введите число А");
 int a = Convert.ToInt32(Console.ReadLine());
 sumAllNum(a);
-
 void sumAllNum(int a)
 {
     int sum = 0;
