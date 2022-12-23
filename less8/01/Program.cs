@@ -21,9 +21,8 @@ int[,] createNewArr()
 }
 
 int[,] newArr = createNewArr();
-int box = 0;
 
-void OrderArr(int[,] arr)
+int[,] OrderArr(int[,] arr)
 {
     for (int i = 0; i < arr.GetLength(0); i++)
     {
@@ -40,15 +39,21 @@ void OrderArr(int[,] arr)
             }
         }
     }
+    return arr;
+}
+void showArr(int[,] arr)
+{
+    for (int i = 0; i < newArr.GetLength(0); i++)
+    {
+        for (int j = 0; j < newArr.GetLength(1); j++)
+        {
+            Console.Write($"{newArr[i, j]} ");
+        }
+        Console.WriteLine();
+    }
 }
 
+int[,] sortArr = OrderArr(newArr);
+
 Console.WriteLine($"\nОтсортированный массив: ");
-OrderArr(newArr);
-for (int i = 0; i < newArr.GetLength(0); i++)
-{
-    for (int j = 0; j < newArr.GetLength(1); j++)
-    {
-        Console.Write($"{newArr[i, j]} ");
-    }
-    Console.WriteLine();
-}
+showArr(sortArr);
