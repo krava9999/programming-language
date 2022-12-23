@@ -1,19 +1,13 @@
 ﻿// Задача 3: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
-Console.WriteLine("введите значение для M");
-int M = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("введите значение для N");
-int N = Convert.ToInt32(Console.ReadLine());
-string result = "";
-
-int getEvenNums(int N, int M) // В метод попадает 10
+Console.Write("Введите число m: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите число n: ");
+int n = Convert.ToInt32(Console.ReadLine());
+int ackermann(int m, int n)
 {
-
-    if (N == M) // 
-    {
-        return N;
-    }
-    return N += getEvenNums(N - 1, M); // Возвращаем 10 передаем 9, возвращаем 9, передаем 8 ... передаем 1 
+    if (m == 0) return n + 1;
+    if (m != 0 && n == 0) return ackermann(m - 1, 1);
+    if (m > 0 && n > 0) return ackermann(m - 1, ackermann(m, n - 1));
+    return ackermann(m, n);
 }
-
-Console.WriteLine(getEvenNums(N, M)); // 10 
-
+Console.Write($"Результат работы функции: {ackermann(m, n)}");
